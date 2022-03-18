@@ -13,6 +13,6 @@ To do this, a time limit was imposed on us, the project took place over 3 months
 
 # To use
 
-> - python -m pip install -r requirements.txt
+> - python -m pip install -r requirement.txt
 > - Create a ``.env`` file
 > - Type ``EXTENSIONS = [Your_Extensions]``
