@@ -1,6 +1,5 @@
 var x = math.floor(math.random() * 5);
-b = 2
-
+beed = 2
 var kek = "kek";
 
 if(x==1) {
