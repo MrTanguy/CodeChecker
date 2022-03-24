@@ -1,0 +1,14 @@
+{
+    "JS" : {
+        "var" : "var|=",
+        "loop" : "{|if|while|for|else",
+        "com" : "//|//|//|//",
+        "extended_com" : "/*"
+    },
+    "C" : {
+        "var" : "int|float|char|static|extern|double|byte|=",
+        "loop" : "{|if|while|for|else",
+        "com" : "//",
+        "extended_com" : "/*"
+    }
+}
