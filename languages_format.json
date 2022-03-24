@@ -2,7 +2,7 @@
     "JS" : {
         "var" : "var|=",
         "loop" : "{|if|while|for|else",
-        "com" : "//|//|//|//",
+        "com" : "//"
         "extended_com" : "/*"
     },
     "C" : {
