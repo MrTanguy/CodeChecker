@@ -1,3 +1,8 @@
 Content3
 beed = 5
-// Normal Commentary
+if(x==1) {
+/*
+d
+*/
+
+c="1";
