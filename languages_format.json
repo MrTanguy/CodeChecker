@@ -1,14 +1,10 @@
 {
-    "JS" : {
-        "var" : "var|=",
-        "loop" : "{|if|while|for|else",
-        "com" : "//",
-        "extended_com" : "/*"
-    },
-    "C" : {
-        "var" : "int|float|char|static|extern|double|byte|=",
-        "loop" : "{|if|while|for|else",
-        "com" : "//",
-        "extended_com" : "/*"
+    "PY" : {
+        "var" : "=",
+        "loop" : "do|while|for|if|else|elif",
+        "com" : "#",
+        "extended_com" : "\"\"\"|'''",
+        "function" : "def",
+        "class" : "class"
     }
 }
