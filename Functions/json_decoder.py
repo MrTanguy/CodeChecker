@@ -7,8 +7,7 @@ def decodeFormat(language) :
     # Return the data of the json object
     json_data = json.load(json_file)
 
-    format_Dict = {}
-    
+    format_Dict = {}    
     for i in json_data :
         if(i.upper() == language) :
             for x in json_data[i] :

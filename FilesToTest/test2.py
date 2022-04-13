@@ -1,6 +1,8 @@
-def my_function(fname):
-  print(fname + " Refsnes")
+def my_function():
+    print("Hello from a function") 
+ 
+    print("x")
+x
 
-my_function("Emil")
-my_function("Tobias")
-my_function("Linus")
+
+my_function()
