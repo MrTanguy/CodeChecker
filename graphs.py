@@ -13,6 +13,7 @@ from tkinter import ttk
 from tkinter import filedialog
 from model.display import display
 from model.button import but
+from main import execute
 
 LARGE_FONT= ("Verdana", 12)
 
@@ -59,6 +60,8 @@ class StartPage(tk.Frame):
             if(dirname != "") :
                 print("-->In NonNull dirname")
                 buttonStart.pack_forget()
+                execute(dirname)
+                
 
         start_img = PhotoImage(file= 'Button.png')
         buttonStart = Button(
