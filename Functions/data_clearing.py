@@ -6,11 +6,13 @@ Var_Content = []
 Equal_Content = []
 Loop_Content = []
 Functions_Content = []
+Class_Content = []
 
 Sample_Content_Double = []
 Sample_Content_Without_CommsLoops = []
 Sample_Content_Without_CommsLoopsVar = []
 Sample_Content_Without_CommsLoopsVarFunc = []
+Sample_Content_Without_CommsLoopsVarFuncClass = []
 
 All_Content = []
 All_Content_Name = []
@@ -30,6 +32,7 @@ def run(sample_c, sample_f):
         PurgeLoops(format_dict['loop'],index)
         PurgeVariables(format_dict['var'],index)
         PurgeFunctions(format_dict['function'], index)
+        PurgeClasses(format_dict['class'],index)
         CheckStruct(format_dict, index , sample_c, sample_f)
         
     print(Loop_Content)
@@ -38,10 +41,13 @@ def run(sample_c, sample_f):
     All_Content.append(Var_Content)
     All_Content.append(Loop_Content)
     All_Content.append(Functions_Content)
+    All_Content.append(Class_Content)
 
     All_Content_Name.append("Commentary")
     All_Content_Name.append("Loop")
     All_Content_Name.append("Var")     
+    All_Content_Name.append("Functions")
+    All_Content_Name.append("Classes")
     return All_Content, All_Content_Name
     
 
@@ -200,3 +206,19 @@ def PurgeFunctions(format, index) :
                 Sample_Content_SubFile.append(lines)
     Sample_Content_Without_CommsLoopsVarFunc.append(Sample_Content_SubFile)
     Functions_Content.append(Functions_SubFile)
+    
+def PurgeClasses(format, index) :
+    Sample_Content_SubFile = []
+    Class_SubFile = []
+    Append_Lines = False
+    for lines in Sample_Content_Without_CommsLoopsVarFunc[index] :
+        for syntax in format : 
+            if(syntax in lines) :
+                Append_Lines = True
+        if(Append_Lines) :
+            Class_SubFile.append(lines)
+            Append_Lines = False
+        else :
+            Sample_Content_SubFile.append(lines)
+    Sample_Content_Without_CommsLoopsVarFuncClass.append(Sample_Content_SubFile)
+    Class_Content.append(Class_SubFile)  
