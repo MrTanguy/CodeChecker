@@ -1,7 +1,12 @@
-import os
 import tkinter
-X = tkinter.Tk()
-X.geometry("taille en x x taille en y") 
-X.mainloop()
-path = "c:"
-os.system("explorer.exe"+path)
+from tkinter import *
+from model.display import display
+from model.button import button
+    
+window = tkinter.Tk()
+window.state('zoomed')
+display(window)
+
+start_btn = PhotoImage(file='Button.png')
+button(window, start_btn)
+window.mainloop()

@@ -20,8 +20,6 @@ for i in range(len(Sample_Files)):
     for j in range(len(Sample_Files)):
         if (i != j):
             PreJson[Sample_Files[i]][Sample_Files[j]] = {}
-            
-print(All_Content)
 
 make(PreJson = prepareJson(PreJson, All_Content, Sample_Files, Sample_Content))
 
