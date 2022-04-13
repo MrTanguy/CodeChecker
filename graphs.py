@@ -11,8 +11,7 @@ from tkinter import *
 import tkinter as tk
 from tkinter import ttk
 from tkinter import filedialog
-from model.display import display
-from model.button import but
+import json
 from main import execute
 
 LARGE_FONT= ("Verdana", 12)
@@ -54,15 +53,34 @@ class StartPage(tk.Frame):
         X = tk.Frame.__init__(self,parent, bg="#282828")
         label = tk.Label(self, text="Start Page", font=LARGE_FONT)
         label.pack(pady=10,padx=10)
-
+        
+        canvas = Canvas(self, width="500",height="500", bd = 0)
+        canvas.configure(bg = "#282828")
+        # canvas.create_oval(10,10,80,80)
+        
+        # canvas.create_oval(80,80,150,150)
+        # canvas.pack()
+        
         def chooseDirectory() :
             dirname = filedialog.askdirectory(title='Select a directory')
             if(dirname != "") :
                 print("-->In NonNull dirname")
                 buttonStart.pack_forget()
                 execute(dirname)
-                
-
+                with open("data.json") as jsonFile:
+                    jsonObject = json.load(jsonFile)
+                    jsonFile.close()
+                    cy=80
+                    cx=10
+                    
+                for files  in jsonObject: 
+                    for testing_files in jsonObject[files] :
+                        print(jsonObject[files][testing_files]["Score"])
+                    canvas.create_oval(cx, cx, cy, cy, outline="#282828", fill="#ababab", width=2)
+                    canvas.create_text(cx+35, cy-35 , text=files)
+                    cx=cy
+                    cy+=70
+                canvas.pack()
         start_img = PhotoImage(file= 'Button.png')
         buttonStart = Button(
             self,
