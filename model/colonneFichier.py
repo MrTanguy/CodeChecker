@@ -39,4 +39,3 @@ class colonneFichier:
         label=Label(windowAttributes, text=text, background='#282828', foreground='white')
         label.pack()
         windowAttributes.mainloop()
-

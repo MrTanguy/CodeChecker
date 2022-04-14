@@ -34,11 +34,7 @@ def run(sample_c, sample_f):
         PurgeFunctions(format_dict['function'], index)
         PurgeClasses(format_dict['class'],index)
         CheckStruct(format_dict, index , sample_c, sample_f)
-<<<<<<< HEAD
         
-=======
-
->>>>>>> UI
     All_Content.append(Commentary_Content)
     All_Content.append(Var_Content)
     All_Content.append(Loop_Content)
@@ -223,4 +219,4 @@ def PurgeClasses(format, index) :
         else :
             Sample_Content_SubFile.append(lines)
     Sample_Content_Without_CommsLoopsVarFuncClass.append(Sample_Content_SubFile)
-    Class_Content.append(Class_SubFile)  
+    Class_Content.append(Class_SubFile)
