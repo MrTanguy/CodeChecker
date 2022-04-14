@@ -10,8 +10,6 @@ def retrieve(Path) :
     s=""
     sample_files = []
     load_dotenv()
-    Space_Cleared_Exts = os.environ["EXTENSIONS"].replace(" ", "")
-
     for ext in os.environ["EXTENSIONS"] :
         if(ext==",") :
             ext="["

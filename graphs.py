@@ -10,6 +10,7 @@ from tkinter import *
 import tkinter as tk
 from tkinter import ttk
 from tkinter import filedialog
+from tkinter import messagebox
 import json
 from main import execute
 
@@ -32,7 +33,9 @@ class SeaofBTCapp(tk.Tk):
         self.frames = {}
         self.pstart = StartPage(container, self)
         self.pgraph = PageGraph(container, self)
-
+        
+        self.protocol("WM_DELETE_WINDOW", self.on_closing)
+        
         for F in (StartPage, PageGraph):
 
             frame = F(container, self)
@@ -46,7 +49,11 @@ class SeaofBTCapp(tk.Tk):
 
         frame = self.frames[cont]
         frame.tkraise()
-
+        
+    def on_closing(self):
+        if messagebox.askokcancel("Quit", "Do you want to quit?"):
+            self.destroy()
+    
         
 class StartPage(tk.Frame):
 
