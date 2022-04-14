@@ -1,12 +1,11 @@
 
+from queue import Full
 import matplotlib
 matplotlib.use("TkAgg")
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk 
-from matplotlib.figure import Figure
-from matplotlib.animation import FuncAnimation
-import matplotlib.pyplot as plt
-import numpy as np
 
+import matplotlib.pyplot as plt
+import functools
 from tkinter import *
 import tkinter as tk
 from tkinter import ttk
@@ -55,8 +54,6 @@ class StartPage(tk.Frame):
         self.controller = controller
         self.first = True
         X = tk.Frame.__init__(self,parent, bg="#282828")
-        label = tk.Label(self, text="Start Page", font=LARGE_FONT)
-        label.pack(pady=10,padx=10)
         self.JsonObject = dict()
         canvas = Canvas(self, width="1000",height="1000", bd = 0)
         canvas.configure(bg = "#282828")
@@ -68,6 +65,25 @@ class StartPage(tk.Frame):
                 with open("data.json") as jsonFile:
                     jsonObject = json.load(jsonFile)
                     jsonFile.close()
+                    
+                    
+                    leftframe = Frame(self)
+                    leftframe.pack(side=LEFT)
+                    
+                    for file in jsonObject:
+                        buttonFichier = Button(
+                            leftframe,
+                            text=file,
+                            foreground='black',
+                            activeforeground='white',
+                            font=("Times New Roman", 25, 'bold'),
+                            borderwidth=5,
+                            background='white',
+                            activebackground='white',
+                            command= functools.partial(self.displayAttributes, file, jsonObject[file])
+                        )
+                        
+                        buttonFichier.pack()   
                     self.JsonObject = jsonObject
                     
                     self.fig, self.ax = plt.subplots(figsize=(3, 2))
@@ -76,7 +92,7 @@ class StartPage(tk.Frame):
                 
                     
                         
-        start_img = PhotoImage(file= 'Button.png')
+        start_img = PhotoImage(file= './Assets/Button.png')
         buttonStart = Button(
             self,
             image=start_img,
@@ -90,12 +106,12 @@ class StartPage(tk.Frame):
             compound="center",
             command=chooseDirectory
         )
-        buttonStart.pack()
+        buttonStart.pack(expand=YES)
         buttonStart.start_img = start_img
         
-        button = ttk.Button(self, text="Change Directory",
-                            command=chooseDirectory)
-        button.pack()
+        # button = ttk.Button(self, text="Change Directory",
+        #                     command=chooseDirectory)
+        # button.pack()
 
     def plot_Graph(self):
         color = "b"
@@ -106,6 +122,13 @@ class StartPage(tk.Frame):
             Increment = 0
             for files  in self.JsonObject: 
                 for testing_files in self.JsonObject[files] :
+                    for score in self.JsonObject[testing_files] :
+                        CountNone=0
+                        for tester in self.JsonObject[testing_files][score] :
+                            if(self.JsonObject[testing_files][score][tester]=="None") :
+                                CountNone+=1 
+                        if(CountNone==5):
+                            self.JsonObject[testing_files][score]["Score"] = "0.0"
                     if(float(self.JsonObject[files][testing_files]["Score"]) >= 0.6) :
                         color="r"
                     else:
@@ -123,15 +146,7 @@ class StartPage(tk.Frame):
                         bbox=dict(boxstyle="round", fc="w"))
                     Increment+=0.1
                 Increment+=0.2
-    
-            
-            
-            
-            
-            
             self.toolbar = NavigationToolbar2Tk(self.canvas, self)
-            
-           
             self.fig.subplots_adjust(top=0.83)        
             
             plt.axis('off')
@@ -143,6 +158,24 @@ class StartPage(tk.Frame):
         else :
             self.fig.clear()
             self.canvas.draw()
+            
+    def displayAttributes(self, file, data):
+        windowAttributes = Tk()
+        windowAttributes.title(file)
+        windowAttributes.config(background='#282828')
+        windowAttributes.geometry("250x400")
+
+        text = ""
+
+        for fileTested in data:
+            text += fileTested + "\n"
+            for attributesFileTested in data[fileTested]:
+                text += attributesFileTested + " : " + data[fileTested][attributesFileTested] + "\n"
+            text += "\n"
+            
+        label=Label(windowAttributes, text=text, background='#282828', foreground='white')
+        label.pack()
+        windowAttributes.mainloop()
      
         
         

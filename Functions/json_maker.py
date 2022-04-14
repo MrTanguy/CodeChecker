@@ -14,32 +14,42 @@ def prepareJson(PreJson, All_Content, Sample_Files, Sample_Content) :
                 indexFail = index  
         if isEmpty == False:
             for score in ExecutePlagiarismChecker(All_Content[index], Sample_Files) :
+                NoneCount = 0
                 result = (','.join(map(str,(score)))).split(',')
                 if index == 0 :
                     if result[2] == "0.0":
                         result[2] = "None"
+                        NoneCount += 1
                     PreJson[result[0]][result[1]]["Commentary"] = result[2]
                     PreJson[result[1]][result[0]]["Commentary"] = result[2]
                 elif index == 1 : 
                     if result[2] == "0.0":
                         result[2] = "None"
+                        NoneCount += 1
                     PreJson[result[0]][result[1]]["Loop"] = result[2]
                     PreJson[result[1]][result[0]]["Loop"] = result[2]
                 elif index == 2 : 
                     if result[2] == "0.0":
                         result[2] = "None"
+                        NoneCount += 1
                     PreJson[result[0]][result[1]]["Var"] = result[2]
                     PreJson[result[1]][result[0]]["Var"] = result[2]
                 elif index == 3 : 
                     if result[2] == "0.0":
                         result[2] = "None"
+                        NoneCount += 1
                     PreJson[result[0]][result[1]]["Function"] = result[2]
                     PreJson[result[1]][result[0]]["Function"] = result[2]
                 else :
                     if result[2] == "0.0":
                         result[2] = "None"
+                        NoneCount += 1
                     PreJson[result[0]][result[1]]["Classes"] = result[2]
                     PreJson[result[1]][result[0]]["Classes"] = result[2]
+                
+                if(NoneCount == 5):
+                    PreJson[result[0]][result[1]]["Score"] = "0"
+                    PreJson[result[1]][result[0]]["Score"] = "0"
         else:
             for nomFichier in range(len(Sample_Files)):
                 for nomFichier2 in range(len(Sample_Files)):
