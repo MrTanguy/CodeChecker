@@ -22,5 +22,23 @@ To do this, a time limit was imposed on us, the project took place over 3 months
 
 ## Authors 
 
-Lecherf Mathis - 
+### Product Owner : 
 MrTanguy - Meignier Tanguy
+tanguy.meignier@ynov.com
+
+### Lead Developer : 
+Mlecherf - Lecherf Mathis 
+mathis.lecherf@ynov.com
+
+## Technologies 
+
+> - Python 3.10
+
+requirements.txt should install these python extensions : 
+> - python-dotenv 0.19.2 
+> - numpy 1.22.2 
+> - scikit-learn 1.0.2 
+> - plotly 5.6.0 
+> - matplotlib 3.4.1 
+> - sty 1.0.4 
+
