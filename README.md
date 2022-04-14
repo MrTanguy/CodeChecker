@@ -13,13 +13,6 @@ the main persons suspected of plagiarism.
 
 To do this, a time limit was imposed on us, the project took place over 3 months and must therefore be finished by April 15th.
 
-## Get started
-
-> - Python installed, developped with Python 3.10.2
-> - Python -m pip install -r requirements.txt
-> - Create a ``.env`` file
-> - Type in .env ``EXTENSIONS = [.py]``
-
 ## Authors 
 
 ### Product Owner : 
@@ -32,11 +25,18 @@ tanguy.meignier@ynov.com
 
 Lecherf Mathis  
 Mlecherf (GitHub)  
-mathis.lecherf@ynov.com  
+mathis.lecherf@ynov.com 
+
+## Get started
+
+> - Python installed, developped with Python 3.10.2
+> - Python -m pip install -r requirements.txt
+> - Create a ``.env`` file
+> - Type in .env ``EXTENSIONS = [.py]``
 
 ## Technologies 
 
-> - Python 3.10
+Python 3.10
 
 requirements.txt should install these python extensions : 
 > - python-dotenv 0.19.2 
