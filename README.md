@@ -23,12 +23,16 @@ To do this, a time limit was imposed on us, the project took place over 3 months
 ## Authors 
 
 ### Product Owner : 
-MrTanguy - Meignier Tanguy
-tanguy.meignier@ynov.com
+
+Meignier Tanguy  
+MrTanguy (GitHub)  
+tanguy.meignier@ynov.com  
 
 ### Lead Developer : 
-Mlecherf - Lecherf Mathis 
-mathis.lecherf@ynov.com
+
+Lecherf Mathis  
+Mlecherf (GitHub)  
+mathis.lecherf@ynov.com  
 
 ## Technologies 
 
