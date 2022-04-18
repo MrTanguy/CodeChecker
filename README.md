@@ -30,7 +30,7 @@ mathis.lecherf@ynov.com
 ## Get started
 
 > - Python installed, developped with Python 3.10.2
-> - Python -m pip install -r requirements.txt
+> - Python -m pip install -r requirement.txt
 > - Create a ``.env`` file
 > - Type in .env ``EXTENSIONS = [.py]``
 
