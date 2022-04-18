@@ -38,7 +38,7 @@ mathis.lecherf@ynov.com
 
 Python 3.10
 
-requirements.txt should install these python extensions : 
+requirement.txt should install these python extensions : 
 > - python-dotenv 0.19.2 
 > - numpy 1.22.2 
 > - scikit-learn 1.0.2 
